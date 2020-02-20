@@ -1,0 +1,53 @@
+<h1>
+  Users
+</h1>
+<br/>
+<br/>
+<h1 *ngIf="!usersArray">Loading</h1>
+<table class="table" *ngIf="usersArray" >
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Button</th>
+      <th scope="col">ID</th>
+      <th scope="col" >Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Website</th>
+      <th scope="col">Street</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of usersArray">
+      <td>
+        
+         <button class="btn btn-primary" (click)= "updateUserId(data.id)">posts</button>
+      </td>
+      <td>
+        <span>{{data.id}}</span>
+      </td>
+      <td>
+        <span>{{data.name}}</span>
+      </td>
+      <td>
+        <span>{{data.username}}</span>
+      </td>
+      <td>
+        <span>{{data.email}}</span>
+      </td>
+      <td>
+        <span>{{data.phone}}</span>
+      </td>
+      <td>
+        <span>{{data.website}}</span>
+      </td>
+      <td>
+        <span>{{data.adress.street}}</span>
+      </td>
+      
+      
+    </tr>
+    </tbody>
+  </table>
+
+  

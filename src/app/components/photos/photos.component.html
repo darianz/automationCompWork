@@ -1,0 +1,20 @@
+
+<h1 *ngIf="!photosArray">Loading</h1>
+<div *ngIf="photosArray" class="container" >
+    <div>
+        <h3>Filter</h3>
+          
+        <input class="form-control" type="text" [(ngModel)]="filteredStatus"> 
+        </div>
+
+        <br/>
+        <br/>
+    <div class="row row-cols-3">
+      <div class="col" *ngFor="let data of photosArray| filter: filteredStatus: 'title';" class="img-thumbnail">
+        {{data.title}}
+        <br/>
+         <img src={{data.thumbnailUrl}} alt="Smiley face" height="42" width="42">
+      </div>
+    </div>
+  </div>
+  
