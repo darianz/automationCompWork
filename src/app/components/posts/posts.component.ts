@@ -11,18 +11,12 @@ import { PostModule } from 'src/app/models/post/post.module';
   styleUrls: ['./posts.component.sass']
 })
 export class PostsComponent implements OnInit {
-  url = "https://jsonplaceholder.typicode.com/posts?userId=";
+  //url = "https://jsonplaceholder.typicode.com/posts?userId=";
+  url = 'assets/posts/post';
   postsArray: PostModule[] ;
   userId: string;
   constructor(private DataService: DataService, private UsersService: UsersService,private PostsService: PostsService) {
 
-    
-     
-      
-
-   }
-
-  ngOnInit() {
     this.PostsService.arrayUpdated.subscribe(
       (posts: PostModule[]) => {
         this.postsArray = posts;
@@ -34,7 +28,7 @@ export class PostsComponent implements OnInit {
       (id: string) => {
         this.userId = id;
         this.DataService
-    .getListOfGroup(this.url+ this.userId)
+    .getListOfGroup(this.url+ this.userId+ '.json')
     .subscribe(
       data => {
         this.PostsService.getPosts(data);
@@ -48,6 +42,11 @@ export class PostsComponent implements OnInit {
       }
       );
     
+
+   }
+
+  ngOnInit() {
+   
   }
 
 }

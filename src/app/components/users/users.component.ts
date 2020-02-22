@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./users.component.sass']
 })
 export class UsersComponent implements OnInit {
-  url = "https://jsonplaceholder.typicode.com/users";
+  //url = "https://jsonplaceholder.typicode.com/users";
+  url = 'assets/users.json';
   usersArray: UserModule[];
   userId: string;
+  show = false;
   constructor(private DataService: DataService, private UsersService: UsersService, private PostsService: PostsService, private router: Router) {
     this.UsersService.arrayUpdated.subscribe(
       (users: UserModule[]) => {
@@ -30,6 +32,7 @@ export class UsersComponent implements OnInit {
         data => {
           
           this.UsersService.getUsers(data);
+          
         },
         err => {
           console.log(err);
@@ -40,6 +43,7 @@ export class UsersComponent implements OnInit {
   updateUserId(id){
     
     this.PostsService.userIdUpdated.emit(id);
+   
     this.router.navigate(['/posts']);
   }
 

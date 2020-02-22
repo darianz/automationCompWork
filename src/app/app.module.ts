@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import{ Routes , RouterModule } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 export const appRoutes: Routes = [
   { path: 'home',  component: UsersComponent },
@@ -34,7 +36,9 @@ export const appRoutes: Routes = [
     LoginComponent,
     RegistrationComponent,
     ForgotpassComponent,
-    FilterPipe
+    FilterPipe,
+    NavbarComponent
+    
     
   ],
   imports: [

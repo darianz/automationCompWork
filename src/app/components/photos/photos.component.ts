@@ -9,7 +9,8 @@ import { PhotoModule } from 'src/app/models/photo/photo.module';
   styleUrls: ['./photos.component.sass']
 })
 export class PhotosComponent implements OnInit {
-  url = "https://jsonplaceholder.typicode.com/photos";
+  //url = "https://jsonplaceholder.typicode.com/photos";
+  url ='assets/photos.json';
   photosArray: PhotoModule[];
   filteredStatus = '';
   
